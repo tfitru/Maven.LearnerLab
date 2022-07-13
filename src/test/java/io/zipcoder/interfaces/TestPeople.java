@@ -44,15 +44,17 @@ public class TestPeople {
     @Test
     public void testFindById() {
         // Given
-
-
+        Person person = new Person(234, null);
+        long expectedId = 234;
 
 
         // When
+        long actualId = person.getId();
 
 
 
         // Then
+        Assert.assertEquals(expectedId, actualId);
 
 
 
