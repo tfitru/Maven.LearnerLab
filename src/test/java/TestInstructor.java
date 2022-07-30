@@ -1,6 +1,4 @@
-import io.zipcoder.interfaces.Instructor;
-import io.zipcoder.interfaces.Person;
-import io.zipcoder.interfaces.Student;
+import io.zipcoder.interfaces.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +9,7 @@ public class TestInstructor {
         Instructor teacher = new Instructor(1, null);
 
         // When
-        if(teacher instanceof Student.Teacher){
+        if(teacher instanceof Teacher){
             System.out.println("True");
         } else {
             System.out.println("False");
@@ -19,7 +17,7 @@ public class TestInstructor {
 
 
         // Then
-        Assert.assertTrue(teacher instanceof Student.Teacher);
+        Assert.assertTrue(teacher instanceof Instructor);
 
     }
 

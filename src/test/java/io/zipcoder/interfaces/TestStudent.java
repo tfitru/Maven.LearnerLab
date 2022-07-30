@@ -13,14 +13,14 @@ public class TestStudent {
 
 
         // Given
-        if(student instanceof Person.Learner){
+        if(student instanceof Learner){
             System.out.println("This is true!");
         }
 
 
 
         // Then
-        Assert.assertTrue(student instanceof Person.Learner);
+        Assert.assertTrue(student instanceof Learner);
     }
 
 
@@ -50,21 +50,10 @@ public class TestStudent {
         student.learn(100);
         Double expectedDouble = 100.0;
 
-
-//        public void learn(double numberOfHours) {
-//            for(int i =0; i<numberOfHours; i++) {
-//                this.totalStudyTime++;
-//            }
-//        }
-
-
         // When
         Double acutalDouble = student.getTotalStudyTime();
 
-
-
         // Then
-
         Assert.assertEquals(expectedDouble, acutalDouble);
 
 

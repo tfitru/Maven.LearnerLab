@@ -7,19 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestPeople {
-    private List<Person> personList = new ArrayList<>();
 
 
     @Test
     public void testAdd() {
         // Given
         Person person = new Person(35, "Person");
+        People<Person> x = new People<Person>() {
+            @Override
+            public Person toArray() {
+                return null;
+            }
+        };
 
-        // When
-        personList.add(person);
+        x.add(person);
 
         // Then
-        System.out.println(personList);
+
+        Assert.assertTrue(x.contains(person));
+
 
     }
 
@@ -27,17 +33,19 @@ public class TestPeople {
     public void testRemove() {
         // Given
         Person person = new Person(45, "Bob");
-        personList.add(person);
-
-
+        People<Person> x = new People<Person>() {
+            @Override
+            public Person toArray() {
+                return null;
+            }
+        };
+        x.add(person);
 
         // When
-        personList.remove(person);
-
+        x.remove(person);
 
         // Then
-        System.out.println(personList);
-
+        Assert.assertFalse(x.contains(person));
     }
 
 
@@ -45,22 +53,18 @@ public class TestPeople {
     public void testFindById() {
         // Given
         Person person = new Person(234, null);
-        long expectedId = 234;
+        Person expectedPerson = person;
+        People<Person> x = new People<Person>() {
+            @Override
+            public Person toArray() {
+                return null;
+            }
+        };
 
-
-        // When
-        long actualId = person.getId();
-
-
+        x.add(person);
+        Person actualId = x.findById(234);
 
         // Then
-        Assert.assertEquals(expectedId, actualId);
-
-
-
-
+        Assert.assertEquals(expectedPerson, actualId);
     }
-
-
-
 }

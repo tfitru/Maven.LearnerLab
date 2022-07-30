@@ -1,11 +1,31 @@
 package io.zipcoder.interfaces;
 
-public final class Students extends People {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-    final Students INSTANCE;
+public final class Students extends People<Student>{
 
+    // Eager Initialization
 
-    public Students(Students instance) {
-        INSTANCE = instance;
+    private static final Students instance = new Students();
+    public List<Student> instanceList;
+
+    Students() {
+        this.instanceList = new ArrayList<>();
     }
+
+    public static Students getInstance() {
+        return instance;
+    }
+
+    public void add(Student student) {
+        this.instanceList.add(student);
+    }
+
+    @Override
+    public Student toArray() {
+        return null;
+    }
+
 }

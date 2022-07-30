@@ -9,7 +9,6 @@ public class Person {
     public Person(long id, String name){
         this.id = id;
         this.name = name;
-
     }
 
     public Long getId(){
@@ -24,13 +23,6 @@ public class Person {
     public void setName(String name) {
         this.name = name;
 
-    }
-
-
-    public interface Learner {
-         void learn(double numberOfHours);
-
-         Double getTotalStudyTime();
     }
 
 }

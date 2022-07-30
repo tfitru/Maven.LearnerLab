@@ -1,11 +1,18 @@
 package io.zipcoder.interfaces;
 
-public class Student extends Person implements Person.Learner {
+import java.util.List;
+
+public class Student extends Person implements Learner {
     private double totalStudyTime;
+
 
     public Student(long id, String name) {
         super(id, name);
+        Students.getInstance().add(this);
+
     }
+
+
 
     @Override
     public void learn(double numberOfHours) {
@@ -19,12 +26,8 @@ public class Student extends Person implements Person.Learner {
         return this.totalStudyTime;
     }
 
-    public interface Teacher {
-        void teach(Learner learner, double numberOfHours);
 
-        void lecture(Learner[] learners, double numberOfHours);
 
-    }
 
 
 
